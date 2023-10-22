@@ -3,7 +3,7 @@
 #include <time.h>
 
 void trocar(int *a, int *b);
-void permutador(int cidades[],int inicio, int N);
+void permutador(int cidades[], int inicio, int N, int M[][N], int partida);
 void matriz_aleatoria(int N, int matriz[][N]);
 
 int main(){
@@ -34,10 +34,10 @@ int main(){
         for (int i = 0; i < N; i++) cidades[i] = i+1;
 
         // Ponto de partica com a matricula 4005
-        int partida = (4+5)%N;
+        int partida = (4+0+0+5)%N;
         printf("Partida = %i\n", partida);
 
-        permutador(cidades, 0, N);
+        permutador(cidades, 0, N, M, partida);
 
     }
 
@@ -52,16 +52,21 @@ void trocar(int *a, int *b) {
 }
 
 // Função para gerar permutações recursivamente
-void permutador(int cidades[], int inicio, int N) {
+void permutador(int cidades[], int inicio, int N, int M[][N], int partida) {
     if (inicio == N) {
+        int custo = 0;
+        int atual = partida;
+
         for (int i = 0; i < N; i++) {
+            custo = custo + M[atual][cidades[i]];
+            atual = cidades[i];
             printf("%i ", cidades[i]);
         }
-        printf("\n");
+        printf("Custo = %i\n", custo);
     } else {
         for (int i = inicio; i < N; i++) {
             trocar(&cidades[inicio], &cidades[i]);
-            permutador(cidades, inicio + 1, N);
+            permutador(cidades, inicio + 1, N, M, partida);
             trocar(&cidades[inicio], &cidades[i]);
         }
     }
