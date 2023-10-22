@@ -4,38 +4,42 @@
 
 void trocar(int *a, int *b);
 void permutador(int cidades[],int inicio, int N);
-void matriz_aleatoria(int N);
+void matriz_aleatoria(int N, int matriz[][N]);
 
 int main(){
-
-    int N=5;
-    int M[N][N];
-    int aux;
-
-    // Preparando o vetor cidades
-    int cidades[N];
-    for (int i = 0; i < N; i++) cidades[i] = i+1;
-    
+    int N;
 
     printf("1 - Matriz aleatoria\n2 - Ler arquivo\nChoose your path or die: ");
+    int aux;
     scanf("%i", &aux);
-    switch (aux)
-    {
-    case 1:
+
+    if (aux == 1){
         printf("Qual o tamanho da matriz? ");
         scanf("%i", &N);
-        matriz_aleatoria(N);
-        break;
-    
-    case 2:
-        
-        break;
 
-    default:
-        break;
+        int M[N][N];
+        matriz_aleatoria(N, M);
+
+        printf("Matriz aleatória:\n");
+        for (int i = 0; i < N; i++){
+            for (int j = 0; j < N; j++)
+            {
+                printf("%.2i|", M[i][j]);
+            }
+            printf("\n");
+        }
+
+        // Preparando o vetor cidades
+        int cidades[N];
+        for (int i = 0; i < N; i++) cidades[i] = i+1;
+
+        // Ponto de partica com a matricula 4005
+        int partida = (4+5)%N;
+        printf("Partida = %i\n", partida);
+
+        permutador(cidades, 0, N);
+
     }
-
-    permutador(cidades, 0, N);
 
     return 0;
 }
@@ -48,25 +52,24 @@ void trocar(int *a, int *b) {
 }
 
 // Função para gerar permutações recursivamente
-void permutador(int elementos[], int inicio, int N) {
+void permutador(int cidades[], int inicio, int N) {
     if (inicio == N) {
         for (int i = 0; i < N; i++) {
-            printf("%i ", elementos[i]);
+            printf("%i ", cidades[i]);
         }
         printf("\n");
     } else {
         for (int i = inicio; i < N; i++) {
-            trocar(&elementos[inicio], &elementos[i]);
-            permutador(elementos, inicio + 1, N);
-            trocar(&elementos[inicio], &elementos[i]);
+            trocar(&cidades[inicio], &cidades[i]);
+            permutador(cidades, inicio + 1, N);
+            trocar(&cidades[inicio], &cidades[i]);
         }
     }
 }
 
-void matriz_aleatoria(int N){
+void matriz_aleatoria(int N, int matriz[][N]){
 
     srand(time(NULL));
-    int matriz[N][N];
 
     for (int i = 0; i < N; i++){
         for (int j = 0; j < N; j++)
@@ -75,16 +78,6 @@ void matriz_aleatoria(int N){
             else matriz[i][j] = rand() % 100;
         }
     }
-
-    printf("Matriz aleatória\n");
-    for (int i = 0; i < N; i++){
-        for (int j = 0; j < N; j++)
-        {
-            printf("%.2i|", matriz[i][j]);
-        }
-        printf("\n");
-    }
-
 }
 
 /*
