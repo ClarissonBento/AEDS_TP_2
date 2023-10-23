@@ -20,14 +20,7 @@ int main(){
         int M[N][N];
         matriz_aleatoria(N, M);
 
-        printf("Matriz aleatória:\n");
-        for (int i = 0; i < N; i++){
-            for (int j = 0; j < N; j++)
-            {
-                printf("%.2i|", M[i][j]);
-            }
-            printf("\n");
-        }
+        
 
         // Preparando o vetor cidades
         int cidades[N];
@@ -62,7 +55,9 @@ void permutador(int cidades[], int inicio, int N, int M[][N], int partida) {
             atual = cidades[i];
             printf("%i ", cidades[i]);
         }
+        custo += M[atual][partida];
         printf("Custo = %i\n", custo);
+
     } else {
         for (int i = inicio; i < N; i++) {
             trocar(&cidades[inicio], &cidades[i]);
@@ -80,9 +75,19 @@ void matriz_aleatoria(int N, int matriz[][N]){
         for (int j = 0; j < N; j++)
         {
             if (i == j) matriz[i][j] = 0;
-            else matriz[i][j] = rand() % 100;
+            else matriz[i][j] = rand() % 10;
         }
     }
+/*
+    printf("Matriz aleatória:\n");
+    for (int i = 0; i < N; i++){
+        for (int j = 0; j < N; j++)
+        {
+            printf("%.2i|", matriz[i][j]);
+        }
+        printf("\n");
+    }
+*/
 }
 
 /*
