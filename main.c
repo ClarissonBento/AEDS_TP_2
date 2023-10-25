@@ -3,7 +3,7 @@
 #include <time.h>
 
 void trocar(int *a, int *b);
-void permutador(int cidades[], int inicio, int N, int M[][N], int partida);
+void permutador(int cidades[], int inicio, int N, int M[][N]);
 void matriz_aleatoria(int N, int matriz[N][N]);
 
 int main(){
@@ -40,13 +40,21 @@ int main(){
             }
         }
 
+        // Colocando a partida na primeira e na última posição
+        N = N+2;
+        for (int i = N - 1; i >= 1; i--) {
+            cidades[i] = cidades[i - 1];
+        }
+        cidades[0] = partida;
+        cidades[N - 1] = partida;
+
         printf("Cidades: ");
         for (int i = 0; i < N; i++){
             printf("%i ", cidades[i]);
         }
         printf("\n");
 
-        permutador(cidades, 0, N, M, partida);
+        permutador(cidades, 0, N, M);
     }
 
     return 0;
@@ -60,20 +68,19 @@ void trocar(int *a, int *b) {
 }
 
 // Função para gerar permutações recursivamente
-void permutador(int cidades[], int inicio, int N, int M[N][N], int partida){
+void permutador(int cidades[], int inicio, int N, int M[N][N]){
 
-    if (inicio == N) {
+    if (inicio+1 == N-1) {
         for (int i = 0; i < N; i++) {
             printf("%i ", cidades[i]);
         }
         printf("\n");
-        //printf("Custo = %i\n");
 
     } else {
-        for (int i = inicio; i < N; i++) {
-            trocar(&cidades[inicio], &cidades[i]);
-            permutador(cidades, inicio + 1, N, M, partida);
-            trocar(&cidades[inicio], &cidades[i]);
+        for (int i = inicio+1; i < N-1; i++) {
+            trocar(&cidades[inicio+1], &cidades[i]);
+            permutador(cidades, inicio+1, N, M);
+            trocar(&cidades[inicio+1], &cidades[i]);
         }
     }
 }
