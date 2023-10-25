@@ -4,7 +4,7 @@
 
 void trocar(int *a, int *b);
 void permutador(int cidades[], int inicio, int N, int M[][N], int partida);
-void matriz_aleatoria(int N, int matriz[][N]);
+void matriz_aleatoria(int N, int matriz[N][N]);
 
 int main(){
     int N;
@@ -20,18 +20,33 @@ int main(){
         int M[N][N];
         matriz_aleatoria(N, M);
 
-        
+        // Ponto de partida com as matriculas
+        int partida = (4005 + 5795 + 5378) % N;
+        printf("Partida = %i\n", partida);
 
         // Preparando o vetor cidades
         int cidades[N];
-        for (int i = 0; i < N; i++) cidades[i] = i+1;
+        for (int i = 0; i < N; i++) cidades[i] = i;
 
-        // Ponto de partica com a matricula 4005
-        int partida = (4+0+0+5)%N;
-        printf("Partida = %i\n", partida);
+        // Removendo o valor de partida do vetor cidades
+        for (int i = 0; i < N; i++){
+            if (cidades[i] == partida){
+
+                for (int j = i; j < N - 1; j++){
+                    cidades[j] = cidades[j + 1];
+                }
+                N--; // Reduz o tamanho do vetor cidades, mas será que precisa mesmo?
+                break; // Sai do loop
+            }
+        }
+
+        printf("Cidades: ");
+        for (int i = 0; i < N; i++){
+            printf("%i ", cidades[i]);
+        }
+        printf("\n");
 
         permutador(cidades, 0, N, M, partida);
-
     }
 
     return 0;
@@ -45,18 +60,14 @@ void trocar(int *a, int *b) {
 }
 
 // Função para gerar permutações recursivamente
-void permutador(int cidades[], int inicio, int N, int M[][N], int partida) {
-    if (inicio == N) {
-        int custo = 0;
-        int atual = partida;
+void permutador(int cidades[], int inicio, int N, int M[N][N], int partida){
 
+    if (inicio == N) {
         for (int i = 0; i < N; i++) {
-            custo = custo + M[atual][cidades[i]];
-            atual = cidades[i];
             printf("%i ", cidades[i]);
         }
-        custo += M[atual][partida];
-        printf("Custo = %i\n", custo);
+        printf("\n");
+        //printf("Custo = %i\n");
 
     } else {
         for (int i = inicio; i < N; i++) {
@@ -67,7 +78,11 @@ void permutador(int cidades[], int inicio, int N, int M[][N], int partida) {
     }
 }
 
-void matriz_aleatoria(int N, int matriz[][N]){
+void calcula_custo(int cidades[], int N, int M[N][N]){
+
+}
+
+void matriz_aleatoria(int N, int matriz[N][N]){
 
     srand(time(NULL));
 
