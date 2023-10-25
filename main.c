@@ -57,10 +57,10 @@ int main(){
 
         permutador(cidades, 0, N, M, partida);
 
-        printf("Matriz aleatória:\n");
+        printf("\nMatriz aleatória:\n");
         for (int i = 0; i < N; i++){
             for (int j = 0; j < N; j++){
-                printf("%i ", M[i][j]);
+                printf("Posição[%i][%i] = %i\n", i, j, M[i][j]);
             }
             printf("\n");
         }
@@ -112,7 +112,7 @@ int calcula_custo(int cidades[], int N, int M[N][N]){
 
 void matriz_aleatoria(int N, int matriz[N][N]){
     srand(time(NULL));
-    
+
     for (int i = 0; i < N; i++){
         for (int j = 0; j < N; j++)
         {
