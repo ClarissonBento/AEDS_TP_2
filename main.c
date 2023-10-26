@@ -80,7 +80,8 @@ void trocar(int *a, int *b) {
 }
 
 // Função para gerar permutações recursivamente
-int custo = 0;
+int custo;
+int menor_custo = 99999;
 void permutador(int cidades[], int inicio, int N, int T, int M[T][T]){
     
     if (inicio+1 == N-1) {
@@ -89,6 +90,12 @@ void permutador(int cidades[], int inicio, int N, int T, int M[T][T]){
         }
         custo = calcula_custo(cidades, N, T, M);
         printf("Custo = %i\n", custo);
+        if (custo < menor_custo)
+        {
+            menor_custo = custo;
+        }
+        printf("Menor custo = %i\n", menor_custo);
+        
 
     } else {
         for (int i = inicio+1; i < N-1; i++) {
