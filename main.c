@@ -3,15 +3,17 @@
 #include <time.h>
 
 void trocar(int *a, int *b);
-void permutador(int cidades[], int inicio, int N, int T, int M[N][N]);
+void permutador(int cidades[], int inicio, int N, int T, int M[T][T]);
 void matriz_aleatoria(int T, int matriz[T][T]);
-int calcula_custo(int cidades[], int N, int T, int M[T][T]);
+int calcula_custo(int cidades[], int T, int M[T][T]);
+void prepara_cidades(int *cidades, int *N, int partida);
 
 int main(){
-    int N, T;
+    int N, T, aux; // T é pro vetor e N pro array
+    int custo = 0;
+    int menor_custo = 99999;
 
     printf("1 - Matriz aleatoria\n2 - Ler arquivo\nChoose your path or die: ");
-    int aux;
     scanf("%i", &aux);
 
     if (aux == 1){
@@ -28,28 +30,8 @@ int main(){
 
         // Preparando o vetor cidades
         int cidades[N];
-        for (int i = 0; i < N; i++) cidades[i] = i;
-
-        // Removendo o valor de partida do vetor cidades
-        for (int i = 0; i < N; i++){
-            if (cidades[i] == partida){
-
-                for (int j = i; j < N - 1; j++){
-                    cidades[j] = cidades[j + 1];
-                }
-                N--; // Reduz o tamanho do vetor cidades, mas será que precisa mesmo?
-                break;
-            }
-        }
-
-        // Colocando a partida na primeira e na última posição
-        N = N+2;
-        for (int i = N - 1; i >= 1; i--) {
-            cidades[i] = cidades[i - 1];
-        }
-        cidades[0] = partida;
-        cidades[N - 1] = partida;
-
+        prepara_cidades(cidades, &N, partida);
+        
         printf("Cidades: ");
         for (int i = 0; i < N; i++){
             printf("%i ", cidades[i]);
@@ -72,30 +54,40 @@ int main(){
     return 0;
 }
 
-// Função para trocar dois elementos em um array
-void trocar(int *a, int *b) {
-    int temp = *a;
-    *a = *b;
-    *b = temp;
+// Depois eu explico
+void prepara_cidades(int *cidades, int *N, int partida){
+
+    for (int i = 0; i < (*N); i++) cidades[i] = i;
+
+    // Removendo o valor de partida do vetor cidades
+    for (int i = 0; i < (*N); i++){
+        if (cidades[i] == partida){
+
+            for (int j = i; j < (*N) - 1; j++){
+                cidades[j] = cidades[j + 1];
+            }
+            (*N)--; // Reduz o tamanho do vetor cidades, mas será que precisa mesmo?
+            break;
+        }
+    }
+
+    // Colocando a partida na primeira e na última posição
+    (*N) = (*N) + 2;
+    for (int i = (*N) - 1; i >= 1; i--) {
+        cidades[i] = cidades[i - 1];
+    }
+    cidades[0] = partida;
+    cidades[(*N) - 1] = partida;
 }
 
 // Função para gerar permutações recursivamente
-int custo;
-int menor_custo = 99999;
 void permutador(int cidades[], int inicio, int N, int T, int M[T][T]){
     
     if (inicio+1 == N-1) {
         for (int i = 0; i < N; i++) {
             printf("%i ", cidades[i]);
         }
-        custo = calcula_custo(cidades, N, T, M);
-        printf("Custo = %i\n", custo);
-        if (custo < menor_custo)
-        {
-            menor_custo = custo;
-        }
-        printf("Menor custo = %i\n", menor_custo);
-        
+        calcula_custo(cidades, T, M);
 
     } else {
         for (int i = inicio+1; i < N-1; i++) {
@@ -106,17 +98,31 @@ void permutador(int cidades[], int inicio, int N, int T, int M[T][T]){
     }
 }
 
-int calcula_custo(int cidades[], int N, int T, int M[T][T]){
+int menor_custo = 9999;
+int calcula_custo(int cidades[], int T, int M[T][T]){
     int custo = 0;
+
     for (int i = 0; i < T; i++) {
         int cidade_atual = cidades[i];
         int proxima_cidade = cidades[i + 1];
         custo += M[cidade_atual][proxima_cidade];
     }
 
+    printf("Custo = %i\n", custo);
+    if (custo < menor_custo) menor_custo = custo;
+    printf("Menor custo = %i\n", menor_custo);
+
     return custo;
 }
 
+// Função para trocar dois elementos em um array
+void trocar(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+// Função pra gerar uma matriz aleatória
 void matriz_aleatoria(int T, int matriz[T][T]){
     srand(time(NULL));
 
