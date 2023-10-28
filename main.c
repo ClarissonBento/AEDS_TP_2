@@ -9,6 +9,9 @@ void prepara_cidades(int *cidades, int *N, int partida);
 void imprime_resultados(int cidades[], int N, int T, int M[T][T], int menor_custo, int percurso[]);
 
 int main(){
+    FILE *arquivo;
+    char nome_aquivo[10];
+
     int N, T, aux; // T é pro vetor e N pro array
     int custo = 0, menor_custo = 99999;
 
@@ -21,8 +24,16 @@ int main(){
     if (aux == 1){
         printf("Qual o tamanho da matriz? ");
         scanf("%i", &N);
-        T = N;
 
+        sprintf(nome_aquivo, "aleatoria_%ix%i.txt", N, N);
+        arquivo = fopen(nome_aquivo, "w");
+
+        if (arquivo == NULL) {
+            printf("Erro ao abrir o arquivo.");
+            return 1;
+        }
+
+        T = N;
         int M[T][T];
         matriz_aleatoria(T, M);
 
@@ -47,6 +58,8 @@ int main(){
         //elapsed_time = (double)(end_time - start_time);
         printf("Tempo de execução: %f segundos\n\n", elapsed_time);
     }
+
+    fclose(arquivo);
 
     return 0;
 }
@@ -83,7 +96,7 @@ void prepara_cidades(int *cidades, int *N, int partida){
 
 void imprime_resultados(int cidades[], int N, int T, int M[T][T], int menor_custo, int percurso[]){
 
-/*  printf("\nMatriz aleatória:\n");
+  printf("\nMatriz aleatória:\n");
     for (int i = 0; i < T; i++){
         for (int j = 0; j < T; j++){
             //printf("%i ", M[i][j]);
@@ -92,15 +105,11 @@ void imprime_resultados(int cidades[], int N, int T, int M[T][T], int menor_cust
         printf("\n");
     }
     printf("\n"); 
-*/
 
     printf("\nMenor custo = %i\n", menor_custo);
-    printf("Percurso feito = ");
-    for (int i = 0; i < N; i++)
-    {
-        printf("%i ", percurso[i]);
-    }
-    printf("\n");
+    printf("Percurso feito = [ ");
+    for (int i = 0; i < N; i++) printf("%i ", percurso[i]);
+    printf("]\n");
 }
 
 // Função para gerar permutações recursivamente
@@ -150,7 +159,7 @@ void matriz_aleatoria(int T, int matriz[T][T]){
         for (int j = 0; j < T; j++)
         {
             if (i == j) matriz[i][j] = 0;
-            else matriz[i][j] = rand() % 10;
+            else matriz[i][j] = (rand() % 9) + 1;
         }
     }
 }
