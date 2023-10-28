@@ -1,0 +1,17 @@
+Para N = 5
+Menor custo = 14
+Percurso feito = [ 3 2 0 4 1 3 ]
+
+Matriz aleatória:
+0 6 8 8 2 
+3 0 2 2 1 
+2 5 0 7 3 
+2 6 1 0 2 
+3 7 6 8 0 
+
+Formato alternativo para fins de checagem dos calculos
+Posição[0][0] = 0   Posição[0][1] = 6   Posição[0][2] = 8   Posição[0][3] = 8   Posição[0][4] = 2   
+Posição[1][0] = 3   Posição[1][1] = 0   Posição[1][2] = 2   Posição[1][3] = 2   Posição[1][4] = 1   
+Posição[2][0] = 2   Posição[2][1] = 5   Posição[2][2] = 0   Posição[2][3] = 7   Posição[2][4] = 3   
+Posição[3][0] = 2   Posição[3][1] = 6   Posição[3][2] = 1   Posição[3][3] = 0   Posição[3][4] = 2   
+Posição[4][0] = 3   Posição[4][1] = 7   Posição[4][2] = 6   Posição[4][3] = 8   Posição[4][4] = 0   

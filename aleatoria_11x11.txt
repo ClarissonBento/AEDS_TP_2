@@ -1,0 +1,29 @@
+Para N = 11
+Menor custo = 23
+Percurso feito = [ 9 2 0 3 6 5 4 7 8 1 10 9 ]
+
+Matriz aleatória:
+0 9 8 2 4 2 9 9 7 8 9 
+5 0 2 6 6 9 1 7 8 5 1 
+2 6 0 7 1 5 6 9 9 2 7 
+5 8 3 0 4 2 2 4 9 9 9 
+8 4 1 4 0 7 8 3 5 4 5 
+3 3 1 8 1 0 3 4 9 9 3 
+4 4 1 6 8 1 0 8 9 7 5 
+8 5 8 7 6 6 3 0 6 8 6 
+1 1 6 8 6 6 2 9 0 5 8 
+9 7 3 8 3 8 6 8 5 0 3 
+3 1 7 9 7 1 5 7 5 1 0 
+
+Formato alternativo para fins de checagem dos calculos
+Posição[0][0] = 0   Posição[0][1] = 9   Posição[0][2] = 8   Posição[0][3] = 2   Posição[0][4] = 4   Posição[0][5] = 2   Posição[0][6] = 9   Posição[0][7] = 9   Posição[0][8] = 7   Posição[0][9] = 8   Posição[0][10] = 9   
+Posição[1][0] = 5   Posição[1][1] = 0   Posição[1][2] = 2   Posição[1][3] = 6   Posição[1][4] = 6   Posição[1][5] = 9   Posição[1][6] = 1   Posição[1][7] = 7   Posição[1][8] = 8   Posição[1][9] = 5   Posição[1][10] = 1   
+Posição[2][0] = 2   Posição[2][1] = 6   Posição[2][2] = 0   Posição[2][3] = 7   Posição[2][4] = 1   Posição[2][5] = 5   Posição[2][6] = 6   Posição[2][7] = 9   Posição[2][8] = 9   Posição[2][9] = 2   Posição[2][10] = 7   
+Posição[3][0] = 5   Posição[3][1] = 8   Posição[3][2] = 3   Posição[3][3] = 0   Posição[3][4] = 4   Posição[3][5] = 2   Posição[3][6] = 2   Posição[3][7] = 4   Posição[3][8] = 9   Posição[3][9] = 9   Posição[3][10] = 9   
+Posição[4][0] = 8   Posição[4][1] = 4   Posição[4][2] = 1   Posição[4][3] = 4   Posição[4][4] = 0   Posição[4][5] = 7   Posição[4][6] = 8   Posição[4][7] = 3   Posição[4][8] = 5   Posição[4][9] = 4   Posição[4][10] = 5   
+Posição[5][0] = 3   Posição[5][1] = 3   Posição[5][2] = 1   Posição[5][3] = 8   Posição[5][4] = 1   Posição[5][5] = 0   Posição[5][6] = 3   Posição[5][7] = 4   Posição[5][8] = 9   Posição[5][9] = 9   Posição[5][10] = 3   
+Posição[6][0] = 4   Posição[6][1] = 4   Posição[6][2] = 1   Posição[6][3] = 6   Posição[6][4] = 8   Posição[6][5] = 1   Posição[6][6] = 0   Posição[6][7] = 8   Posição[6][8] = 9   Posição[6][9] = 7   Posição[6][10] = 5   
+Posição[7][0] = 8   Posição[7][1] = 5   Posição[7][2] = 8   Posição[7][3] = 7   Posição[7][4] = 6   Posição[7][5] = 6   Posição[7][6] = 3   Posição[7][7] = 0   Posição[7][8] = 6   Posição[7][9] = 8   Posição[7][10] = 6   
+Posição[8][0] = 1   Posição[8][1] = 1   Posição[8][2] = 6   Posição[8][3] = 8   Posição[8][4] = 6   Posição[8][5] = 6   Posição[8][6] = 2   Posição[8][7] = 9   Posição[8][8] = 0   Posição[8][9] = 5   Posição[8][10] = 8   
+Posição[9][0] = 9   Posição[9][1] = 7   Posição[9][2] = 3   Posição[9][3] = 8   Posição[9][4] = 3   Posição[9][5] = 8   Posição[9][6] = 6   Posição[9][7] = 8   Posição[9][8] = 5   Posição[9][9] = 0   Posição[9][10] = 3   
+Posição[10][0] = 3   Posição[10][1] = 1   Posição[10][2] = 7   Posição[10][3] = 9   Posição[10][4] = 7   Posição[10][5] = 1   Posição[10][6] = 5   Posição[10][7] = 7   Posição[10][8] = 5   Posição[10][9] = 1   Posição[10][10] = 0   

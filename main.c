@@ -6,17 +6,18 @@ void trocar(int *a, int *b);
 void permutador(int cidades[], int inicio, int N, int T, int M[T][T], int *menor_custo, int *percurso);
 void matriz_aleatoria(int T, int matriz[T][T]);
 void prepara_cidades(int *cidades, int *N, int partida);
-void imprime_resultados(int cidades[], int N, int T, int M[T][T], int menor_custo, int percurso[]);
+void imprime_resultados(FILE *arquivo, int cidades[], int N, int T, int M[T][T], int menor_custo, int percurso[]);
 
 int main(){
     FILE *arquivo;
-    char nome_aquivo[10];
+    char nome_aquivo[50];
 
     int N, T, aux; // T é pro vetor e N pro array
     int custo = 0, menor_custo = 99999;
 
     clock_t start_time, end_time;
     double elapsed_time;
+    start_time = clock();
 
     printf("1 - Matriz aleatoria\n2 - Ler arquivo\nChoose your path or die: ");
     scanf("%i", &aux);
@@ -39,26 +40,24 @@ int main(){
 
         // Ponto de partida com as matriculas
         int partida = (4005 + 5795 + 5378) % N;
-        printf("\nPartida = %i", partida);
+        //printf("\nPartida = %i", partida);
 
         // Preparando o vetor cidades
         int cidades[N+1];
         prepara_cidades(cidades, &N, partida);
 
-
         int menor_custo = 99999;
         int percurso[N];
 
-        start_time = clock(); // Pra considerar apenas as permutações
-
         permutador(cidades, 0, N, T, M, &menor_custo, percurso);
-        imprime_resultados(cidades, N, T, M, menor_custo, percurso);
+        imprime_resultados(arquivo, cidades, N, T, M, menor_custo, percurso);
 
-        elapsed_time = (double)(end_time - start_time) / CLOCKS_PER_SEC;
-        //elapsed_time = (double)(end_time - start_time);
-        printf("Tempo de execução: %f segundos\n\n", elapsed_time);
     }
 
+    end_time = clock();
+    elapsed_time = (double)(end_time - start_time) / CLOCKS_PER_SEC;
+
+    printf("Tempo de execução: %f segundos\n\n", elapsed_time);
     fclose(arquivo);
 
     return 0;
@@ -89,27 +88,56 @@ void prepara_cidades(int *cidades, int *N, int partida){
     cidades[0] = partida;
     cidades[(*N) - 1] = partida;
 
-    printf("\nCidades: ");
-    for (int i = 0; i < (*N); i++) printf("%i ", cidades[i]);
-    printf("\n\n");
+    //printf("\nCidades: ");
+    //for (int i = 0; i < (*N); i++) printf("%i ", cidades[i]);
+    //printf("\n\n");
 }
 
-void imprime_resultados(int cidades[], int N, int T, int M[T][T], int menor_custo, int percurso[]){
+void imprime_resultados(FILE *arquivo, int cidades[], int N, int T, int M[T][T], int menor_custo, int percurso[]){
 
-  printf("\nMatriz aleatória:\n");
+    // Printando no terminal
+    //-----------------------------------------------------------------------------------------------
+    printf("\nMatriz aleatória:\n");
     for (int i = 0; i < T; i++){
         for (int j = 0; j < T; j++){
-            //printf("%i ", M[i][j]);
-            printf("Posição[%i][%i] = %i\n", i, j, M[i][j]);
+            printf("%i ", M[i][j]);
         }
         printf("\n");
     }
     printf("\n"); 
 
-    printf("\nMenor custo = %i\n", menor_custo);
+    printf("Menor custo = %i\n", menor_custo);
     printf("Percurso feito = [ ");
     for (int i = 0; i < N; i++) printf("%i ", percurso[i]);
     printf("]\n");
+    //------------------------------------------------------------------------------------------------
+
+    // Pritando no arquivo
+    //------------------------------------------------------------------------------------------------
+    fprintf(arquivo, "Para N = %i\n", N-1);
+    fprintf(arquivo, "Menor custo = %i\n", menor_custo);
+    fprintf(arquivo, "Percurso feito = [ ");
+    for (int i = 0; i < N; i++) {
+        fprintf(arquivo, "%i ", percurso[i]);
+    }
+    fprintf(arquivo, "]\n");
+
+    fprintf(arquivo, "\nMatriz aleatória:\n");
+    for (int i = 0; i < T; i++){
+        for (int j = 0; j < T; j++){
+            fprintf(arquivo, "%i ", M[i][j]);
+        }
+        fprintf(arquivo, "\n");
+    }
+
+    fprintf(arquivo, "\nFormato alternativo para fins de checagem dos calculos\n");
+    for (int i = 0; i < T; i++){
+        for (int j = 0; j < T; j++){
+            fprintf(arquivo, "Posição[%i][%i] = %i   ", i, j, M[i][j]);
+        }
+        fprintf(arquivo, "\n");
+    }
+    //------------------------------------------------------------------------------------------------
 }
 
 // Função para gerar permutações recursivamente
