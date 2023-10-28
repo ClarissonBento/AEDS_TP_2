@@ -31,11 +31,9 @@ int main(){
         printf("\nPartida = %i", partida);
 
         // Preparando o vetor cidades
-        int cidades[N];
+        int cidades[N+1];
         prepara_cidades(cidades, &N, partida);
-        printf("\nCidades: ");
-        for (int i = 0; i < N; i++) printf("%i ", cidades[i]);
-        printf("\n\n");
+
 
         int menor_custo = 99999;
         int percurso[N];
@@ -45,12 +43,42 @@ int main(){
         permutador(cidades, 0, N, T, M, &menor_custo, percurso);
         imprime_resultados(cidades, N, T, M, menor_custo, percurso);
 
-        //elapsed_time = (double)(end_time - start_time) / CLOCKS_PER_SEC;
-        elapsed_time = (double)(end_time - start_time);
+        elapsed_time = (double)(end_time - start_time) / CLOCKS_PER_SEC;
+        //elapsed_time = (double)(end_time - start_time);
         printf("Tempo de execução: %f segundos\n\n", elapsed_time);
     }
 
     return 0;
+}
+
+// Prepara o vetor de cidades, colocando a "partida" no primeiro e no ultimo elemento
+void prepara_cidades(int *cidades, int *N, int partida){
+
+    for (int i = 0; i < (*N); i++) cidades[i] = i;
+
+    // Removendo o valor de partida do vetor cidades
+    for (int i = 0; i < (*N); i++){
+        if (cidades[i] == partida){
+
+            for (int j = i; j < (*N) - 1; j++){
+                cidades[j] = cidades[j + 1];
+            }
+            (*N)--; // Reduz o tamanho do vetor cidades, mas será que precisa mesmo?
+            break;
+        }
+    }
+
+    // Colocando a partida na primeira e na última posição
+    (*N) = (*N) + 2;
+    for (int i = (*N) - 1; i >= 1; i--) {
+        cidades[i] = cidades[i - 1];
+    }
+    cidades[0] = partida;
+    cidades[(*N) - 1] = partida;
+
+    printf("\nCidades: ");
+    for (int i = 0; i < (*N); i++) printf("%i ", cidades[i]);
+    printf("\n\n");
 }
 
 void imprime_resultados(int cidades[], int N, int T, int M[T][T], int menor_custo, int percurso[]){
@@ -105,32 +133,6 @@ void permutador(int cidades[], int inicio, int N, int T, int M[T][T], int *menor
             trocar(&cidades[inicio+1], &cidades[i]);
         }
     }
-}
-
-// Depois eu explico
-void prepara_cidades(int *cidades, int *N, int partida){
-
-    for (int i = 0; i < (*N); i++) cidades[i] = i;
-
-    // Removendo o valor de partida do vetor cidades
-    for (int i = 0; i < (*N); i++){
-        if (cidades[i] == partida){
-
-            for (int j = i; j < (*N) - 1; j++){
-                cidades[j] = cidades[j + 1];
-            }
-            (*N)--; // Reduz o tamanho do vetor cidades, mas será que precisa mesmo?
-            break;
-        }
-    }
-
-    // Colocando a partida na primeira e na última posição
-    (*N) = (*N) + 2;
-    for (int i = (*N) - 1; i >= 1; i--) {
-        cidades[i] = cidades[i - 1];
-    }
-    cidades[0] = partida;
-    cidades[(*N) - 1] = partida;
 }
 
 // Função para trocar dois elementos em um array
