@@ -2,40 +2,73 @@
 #include <stdlib.h>
 #include <time.h>
 
-void por_arquivo(){
-    /*
-void ler_Matriz(const char *nomeArquivo, int ***matriz, int *N) {
-    FILE *arquivo = fopen(nomeArquivo, "r");
+void trocar(int *a, int *b);
+void permutador(int *cidades, int inicio, int N, int T, int M[T][T], int *menor_custo, int *percurso);
+void matriz_aleatoria(int T, int matriz[T][T]);
+void prepara_cidades(int *cidades, int *N, int partida);
+void imprime_resultados(FILE *arquivo, int cidades[], int N, int T, int M[T][T], int menor_custo, int percurso[], double elapsed_time);
+void por_matriz_aleatoria(FILE *arquivo);
+void por_arquivo(FILE *arquivo);
+
+void por_arquivo(FILE *arquivo) {
+    clock_t start_time, end_time;
+    double elapsed_time;
+    start_time = clock();
+
+    int N;
+
+    arquivo = fopen("teste_moodle.txt", "r");
 
     if (arquivo == NULL) {
         printf("Erro ao abrir o arquivo.\n");
         exit(1);
     }
 
-    // Lenndo o tamanho da matriz na primeira linha do arquvio
-    if (fscanf(arquivo, "%i", N) != 1) {
+    // Lendo o tamanho da matriz na primeira linha do arquivo
+    if (fscanf(arquivo, "%i", &N) != 1) {
         printf("Erro ao ler o tamanho da matriz do arquivo.\n");
         fclose(arquivo);
         exit(1);
     }
 
     // Declara a matriz
-    int matriz[*N][*N];
+    int M[N][N];
 
     // Lê os valores da matriz a partir das linhas seguintes do arquivo
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
-            if (fscanf(arquivo, "%i", &(*matriz)[i][j]) != 1) {
-                printf("Erro ao ler os valores da matriz do arquivo.\n");
-                fclose(arquivo);
-                exit(1);
+            if (i == j) {
+                M[i][j] = 0;
+            } else {
+                if (fscanf(arquivo, "%d", &M[i][j]) != 1) {
+                    printf("Erro ao ler os valores da matriz do arquivo.\n");
+                    fclose(arquivo);
+                    exit(1);
+                }
             }
         }
     }
 
-    // Fecha o arquivo após a leitura
+    int T; // T é pro vetor e N pro array
+    T = N;
+
+    // Ponto de partida com as matriculas
+    int partida = ((4+0+0+5) + (5+7+9+5) + (5+3+7+8)) % N;
+    //printf("\nPartida = %i", partida);
+
+    // Preparando o vetor cidades
+    int cidades[N+1];
+    prepara_cidades(cidades, &N, partida);
+
+    int menor_custo = 99999;
+    int percurso[N];
+
+    permutador(cidades, 0, N, T, M, &menor_custo, percurso);
+    
+    end_time = clock();
+    elapsed_time = (double)(end_time - start_time) / CLOCKS_PER_SEC;
+
+    imprime_resultados(arquivo, cidades, N, T, M, menor_custo, percurso, elapsed_time);
+
     fclose(arquivo);
 }
-*/
-}
-

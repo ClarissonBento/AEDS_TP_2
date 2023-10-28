@@ -10,7 +10,7 @@ void trocar(int *a, int *b) {
 }
 
 // Função para gerar permutações recursivamente
-void permutador(int cidades[], int inicio, int N, int T, int M[T][T], int *menor_custo, int *percurso){
+void permutador(int *cidades, int inicio, int N, int T, int M[T][T], int *menor_custo, int *percurso){
     
     if (inicio+1 == N-1) {
         for (int i = 0; i < N; i++) {
@@ -71,11 +71,11 @@ void prepara_cidades(int *cidades, int *N, int partida){
     //printf("\n\n");
 }
 
-void imprime_resultados(FILE *arquivo, int cidades[], int N, int T, int M[T][T], int menor_custo, int percurso[]){
+void imprime_resultados(FILE *arquivo, int cidades[], int N, int T, int M[T][T], int menor_custo, int percurso[], double elapsed_time){
 
     // Printando no terminal
     //-----------------------------------------------------------------------------------------------
-    printf("\nMatriz aleatória:\n");
+    printf("\nMatriz:\n");
     for (int i = 0; i < T; i++){
         for (int j = 0; j < T; j++){
             printf("%i ", M[i][j]);
@@ -88,6 +88,8 @@ void imprime_resultados(FILE *arquivo, int cidades[], int N, int T, int M[T][T],
     printf("Percurso feito = [ ");
     for (int i = 0; i < N; i++) printf("%i ", percurso[i]);
     printf("]\n");
+
+    printf("Tempo de execução: %f segundos\n", elapsed_time);
     //------------------------------------------------------------------------------------------------
 
     // Pritando no arquivo
@@ -99,8 +101,9 @@ void imprime_resultados(FILE *arquivo, int cidades[], int N, int T, int M[T][T],
         fprintf(arquivo, "%i ", percurso[i]);
     }
     fprintf(arquivo, "]\n");
+    fprintf(arquivo, "Tempo de execução: %f segundos\n", elapsed_time);
 
-    fprintf(arquivo, "\nMatriz aleatória:\n");
+    fprintf(arquivo, "\nMatriz:\n");
     for (int i = 0; i < T; i++){
         for (int j = 0; j < T; j++){
             fprintf(arquivo, "%i ", M[i][j]);
