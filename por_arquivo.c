@@ -67,7 +67,7 @@ void por_arquivo() {
     permutador(cidades, 0, N, T, M, &menor_custo, percurso);
     
     char nome_saida[50];
-    sprintf(nome_saida, "porArquivo_%ix%i.txt", T, T);
+    sprintf(nome_saida, "saidas_porArquivo/porArquivo_%ix%i.txt", T, T);
     arquivo_Saida = fopen(nome_saida, "w");
 
     end_time = clock();

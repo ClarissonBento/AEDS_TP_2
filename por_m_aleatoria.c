@@ -20,7 +20,7 @@ void por_matriz_aleatoria(){
     printf("Qual o tamanho da matriz? ");
     scanf("%i", &N);
 
-    sprintf(nome_aquivo, "aleatoria_%ix%i.txt", N, N);
+    sprintf(nome_aquivo, "saidas_aleatorias/aleatoria_%ix%i.txt", N, N);
     arquivo = fopen(nome_aquivo, "w");
 
     if (arquivo == NULL) printf("Erro ao abrir o arquivo.");

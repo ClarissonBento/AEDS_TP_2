@@ -1,7 +1,7 @@
 Para N = 5
 Menor custo = 160
 Percurso feito = [ 3 0 1 2 4 3 ]
-Tempo de execução: 0.000234 segundos
+Tempo de execução: 0.000294 segundos
 
 Matriz:
 0 11 12 13 14 
