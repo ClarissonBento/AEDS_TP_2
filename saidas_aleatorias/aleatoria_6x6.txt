@@ -1,20 +1,20 @@
 Para N = 6
-Menor custo = 191
-Percurso feito = [ 4 1 0 3 2 5 4 ]
-Tempo de execução: 0.001366 segundos
+Menor custo = 192
+Percurso feito = [ 4 0 3 5 1 2 4 ]
+Tempo de execução: 0.000541 segundos
 
 Matriz:
-00 60 60 06 04 88 
-76 00 45 84 90 69 
-29 39 00 22 96 71 
-52 65 15 00 12 92 
-92 09 48 89 00 68 
-83 70 77 75 14 00 
+00 77 34 36 63 85 
+33 00 04 62 59 84 
+81 08 00 56 27 53 
+36 58 86 00 88 30 
+17 78 42 36 00 37 
+50 78 54 55 98 00 
 
 Formato alternativo para fins de checagem dos calculos
-Posição[00][00] = 00   Posição[00][01] = 60   Posição[00][02] = 60   Posição[00][03] = 06   Posição[00][04] = 04   Posição[00][05] = 88   
-Posição[01][00] = 76   Posição[01][01] = 00   Posição[01][02] = 45   Posição[01][03] = 84   Posição[01][04] = 90   Posição[01][05] = 69   
-Posição[02][00] = 29   Posição[02][01] = 39   Posição[02][02] = 00   Posição[02][03] = 22   Posição[02][04] = 96   Posição[02][05] = 71   
-Posição[03][00] = 52   Posição[03][01] = 65   Posição[03][02] = 15   Posição[03][03] = 00   Posição[03][04] = 12   Posição[03][05] = 92   
-Posição[04][00] = 92   Posição[04][01] = 09   Posição[04][02] = 48   Posição[04][03] = 89   Posição[04][04] = 00   Posição[04][05] = 68   
-Posição[05][00] = 83   Posição[05][01] = 70   Posição[05][02] = 77   Posição[05][03] = 75   Posição[05][04] = 14   Posição[05][05] = 00   
+Posição[00][00] = 00   Posição[00][01] = 77   Posição[00][02] = 34   Posição[00][03] = 36   Posição[00][04] = 63   Posição[00][05] = 85   
+Posição[01][00] = 33   Posição[01][01] = 00   Posição[01][02] = 04   Posição[01][03] = 62   Posição[01][04] = 59   Posição[01][05] = 84   
+Posição[02][00] = 81   Posição[02][01] = 08   Posição[02][02] = 00   Posição[02][03] = 56   Posição[02][04] = 27   Posição[02][05] = 53   
+Posição[03][00] = 36   Posição[03][01] = 58   Posição[03][02] = 86   Posição[03][03] = 00   Posição[03][04] = 88   Posição[03][05] = 30   
+Posição[04][00] = 17   Posição[04][01] = 78   Posição[04][02] = 42   Posição[04][03] = 36   Posição[04][04] = 00   Posição[04][05] = 37   
+Posição[05][00] = 50   Posição[05][01] = 78   Posição[05][02] = 54   Posição[05][03] = 55   Posição[05][04] = 98   Posição[05][05] = 00   

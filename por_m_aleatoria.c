@@ -33,10 +33,12 @@ void por_matriz_aleatoria(){
     int partida = ((4+0+0+5) + (5+7+9+5) + (5+3+7+8)) % N;
     //printf("\nPartida = %i", partida);
 
+    printf("Teste 1: %i\n", N);
     // Preparando o vetor cidades
     int cidades[N+1];
     prepara_cidades(cidades, &N, partida);
 
+    printf("Teste 2: %i\n", N);
     int menor_custo = 99999;
     int percurso[N];
 
