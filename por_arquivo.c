@@ -13,9 +13,6 @@ void por_arquivo() {
     start_time = clock();
 
     FILE *arquivo_Entrada, *arquivo_Saida;
-
-    int N;
-
     arquivo_Entrada = fopen("teste_moodle.txt", "r");
 
     if (arquivo_Entrada == NULL) {
@@ -23,14 +20,15 @@ void por_arquivo() {
         exit(1);
     }
 
+    int N, T; // T é pro vetor e N pro array
+
     // Lendo o tamanho da matriz na primeira linha do arquivo
     if (fscanf(arquivo_Entrada, "%i", &N) != 1) {
         printf("Erro ao ler o tamanho da matriz do arquivo.\n");
         fclose(arquivo_Entrada);
         exit(1);
     }
-
-    int T; // T é pro vetor e N pro array
+    
     T = N;
     printf("Teste 1: %i\n", N);
 
