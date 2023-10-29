@@ -94,7 +94,7 @@ void imprime_resultados(FILE *arquivo, int cidades[], int N, int T, int M[T][T],
 
     // Pritando no arquivo
     //------------------------------------------------------------------------------------------------
-    fprintf(arquivo, "Para N = %i\n", N-1);
+    fprintf(arquivo, "Para N = %i\n", (N-1));
     fprintf(arquivo, "Menor custo = %i\n", menor_custo);
     fprintf(arquivo, "Percurso feito = [ ");
     for (int i = 0; i < N; i++) {

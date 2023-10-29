@@ -2,17 +2,17 @@
 #include <stdlib.h>
 #include <time.h>
 
-void trocar(int *a, int *b);
 void permutador(int *cidades, int inicio, int N, int T, int M[T][T], int *menor_custo, int *percurso);
 void matriz_aleatoria(int T, int matriz[T][T]);
 void prepara_cidades(int *cidades, int *N, int partida);
 void imprime_resultados(FILE *arquivo, int cidades[], int N, int T, int M[T][T], int menor_custo, int percurso[], double elapsed_time);
-void por_matriz_aleatoria(FILE *arquivo);
 
-void por_matriz_aleatoria(FILE *arquivo){
+void por_matriz_aleatoria(){
     clock_t start_time, end_time;
     double elapsed_time;
     start_time = clock();
+
+    FILE *arquivo;
 
     int N, T; // T é pro vetor e N pro array
     char nome_aquivo[50];

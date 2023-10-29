@@ -2,35 +2,34 @@
 #include <stdlib.h>
 #include <time.h>
 
-void trocar(int *a, int *b);
 void permutador(int *cidades, int inicio, int N, int T, int M[T][T], int *menor_custo, int *percurso);
 void matriz_aleatoria(int T, int matriz[T][T]);
 void prepara_cidades(int *cidades, int *N, int partida);
 void imprime_resultados(FILE *arquivo, int cidades[], int N, int T, int M[T][T], int menor_custo, int percurso[], double elapsed_time);
-void por_matriz_aleatoria(FILE *arquivo);
-void por_arquivo(FILE *arquivo);
 
-void por_arquivo(FILE *arquivo) {
+void por_arquivo() {
     clock_t start_time, end_time;
     double elapsed_time;
     start_time = clock();
 
+    FILE *arquivo_Entrada, *arquivo_Saida;
+
     int N;
 
-    arquivo = fopen("teste_moodle.txt", "r");
+    arquivo_Entrada = fopen("teste_moodle.txt", "r");
 
-    if (arquivo == NULL) {
+    if (arquivo_Entrada == NULL) {
         printf("Erro ao abrir o arquivo.\n");
         exit(1);
     }
 
     // Lendo o tamanho da matriz na primeira linha do arquivo
-    if (fscanf(arquivo, "%i", &N) != 1) {
+    if (fscanf(arquivo_Entrada, "%i", &N) != 1) {
         printf("Erro ao ler o tamanho da matriz do arquivo.\n");
-        fclose(arquivo);
+        fclose(arquivo_Entrada);
         exit(1);
     }
-
+    printf("Teste 1: %i\n", N);
     // Declara a matriz
     int M[N][N];
 
@@ -40,9 +39,9 @@ void por_arquivo(FILE *arquivo) {
             if (i == j) {
                 M[i][j] = 0;
             } else {
-                if (fscanf(arquivo, "%d", &M[i][j]) != 1) {
+                if (fscanf(arquivo_Entrada, "%i", &M[i][j]) != 1) {
                     printf("Erro ao ler os valores da matriz do arquivo.\n");
-                    fclose(arquivo);
+                    fclose(arquivo_Entrada);
                     exit(1);
                 }
             }
@@ -60,15 +59,22 @@ void por_arquivo(FILE *arquivo) {
     int cidades[N+1];
     prepara_cidades(cidades, &N, partida);
 
+    printf("Teste 2: %i\n", N);
+
     int menor_custo = 99999;
     int percurso[N];
 
     permutador(cidades, 0, N, T, M, &menor_custo, percurso);
     
+    char nome_saida[50];
+    sprintf(nome_saida, "porArquivo_%ix%i.txt", T, T);
+    arquivo_Saida = fopen(nome_saida, "w");
+
     end_time = clock();
     elapsed_time = (double)(end_time - start_time) / CLOCKS_PER_SEC;
 
-    imprime_resultados(arquivo, cidades, N, T, M, menor_custo, percurso, elapsed_time);
+    imprime_resultados(arquivo_Saida, cidades, N, T, M, menor_custo, percurso, elapsed_time);
 
-    fclose(arquivo);
+    fclose(arquivo_Entrada);
+    fclose(arquivo_Saida);
 }
