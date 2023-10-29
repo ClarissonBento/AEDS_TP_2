@@ -38,7 +38,7 @@ void por_matriz_aleatoria(){
     prepara_cidades(cidades, &N, partida);
 
     int menor_custo = 99999;
-    int percurso[N];
+    int percurso[N+1];
 
     permutador(cidades, 0, N, T, M, &menor_custo, percurso);
     

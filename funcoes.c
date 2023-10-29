@@ -78,7 +78,7 @@ void imprime_resultados(FILE *arquivo, int cidades[], int N, int T, int M[T][T],
     printf("\nMatriz:\n");
     for (int i = 0; i < T; i++){
         for (int j = 0; j < T; j++){
-            printf("%i ", M[i][j]);
+            printf("%.2i ", M[i][j]);
         }
         printf("\n");
     }
@@ -106,7 +106,7 @@ void imprime_resultados(FILE *arquivo, int cidades[], int N, int T, int M[T][T],
     fprintf(arquivo, "\nMatriz:\n");
     for (int i = 0; i < T; i++){
         for (int j = 0; j < T; j++){
-            fprintf(arquivo, "%i ", M[i][j]);
+            fprintf(arquivo, "%.2i ", M[i][j]);
         }
         fprintf(arquivo, "\n");
     }
@@ -114,7 +114,7 @@ void imprime_resultados(FILE *arquivo, int cidades[], int N, int T, int M[T][T],
     fprintf(arquivo, "\nFormato alternativo para fins de checagem dos calculos\n");
     for (int i = 0; i < T; i++){
         for (int j = 0; j < T; j++){
-            fprintf(arquivo, "Posição[%i][%i] = %i   ", i, j, M[i][j]);
+            fprintf(arquivo, "Posição[%i][%i] = %.2i   ", i, j, M[i][j]);
         }
         fprintf(arquivo, "\n");
     }
@@ -129,7 +129,7 @@ void matriz_aleatoria(int T, int matriz[T][T]){
         for (int j = 0; j < T; j++)
         {
             if (i == j) matriz[i][j] = 0;
-            else matriz[i][j] = (rand() % 9) + 1;
+            else matriz[i][j] = (rand() % 99) + 1;
         }
     }
 }

@@ -1,20 +1,20 @@
 Para N = 6
-Menor custo = 17
-Percurso feito = [ 4 5 2 0 1 3 4 ]
-Tempo de execução: 0.000815 segundos
+Menor custo = 154
+Percurso feito = [ 4 2 0 5 3 1 4 ]
+Tempo de execução: 0.000865 segundos
 
 Matriz:
-0 1 7 9 3 5 
-1 0 1 1 2 3 
-4 7 0 6 4 5 
-4 4 9 0 4 9 
-9 6 2 7 0 5 
-9 3 2 6 9 0 
+00 68 15 42 56 15 
+68 00 04 59 23 16 
+68 52 00 51 59 95 
+88 28 31 00 51 97 
+83 41 10 36 00 28 
+62 33 49 10 61 00 
 
 Formato alternativo para fins de checagem dos calculos
-Posição[0][0] = 0   Posição[0][1] = 1   Posição[0][2] = 7   Posição[0][3] = 9   Posição[0][4] = 3   Posição[0][5] = 5   
-Posição[1][0] = 1   Posição[1][1] = 0   Posição[1][2] = 1   Posição[1][3] = 1   Posição[1][4] = 2   Posição[1][5] = 3   
-Posição[2][0] = 4   Posição[2][1] = 7   Posição[2][2] = 0   Posição[2][3] = 6   Posição[2][4] = 4   Posição[2][5] = 5   
-Posição[3][0] = 4   Posição[3][1] = 4   Posição[3][2] = 9   Posição[3][3] = 0   Posição[3][4] = 4   Posição[3][5] = 9   
-Posição[4][0] = 9   Posição[4][1] = 6   Posição[4][2] = 2   Posição[4][3] = 7   Posição[4][4] = 0   Posição[4][5] = 5   
-Posição[5][0] = 9   Posição[5][1] = 3   Posição[5][2] = 2   Posição[5][3] = 6   Posição[5][4] = 9   Posição[5][5] = 0   
+Posição[0][0] = 00   Posição[0][1] = 68   Posição[0][2] = 15   Posição[0][3] = 42   Posição[0][4] = 56   Posição[0][5] = 15   
+Posição[1][0] = 68   Posição[1][1] = 00   Posição[1][2] = 04   Posição[1][3] = 59   Posição[1][4] = 23   Posição[1][5] = 16   
+Posição[2][0] = 68   Posição[2][1] = 52   Posição[2][2] = 00   Posição[2][3] = 51   Posição[2][4] = 59   Posição[2][5] = 95   
+Posição[3][0] = 88   Posição[3][1] = 28   Posição[3][2] = 31   Posição[3][3] = 00   Posição[3][4] = 51   Posição[3][5] = 97   
+Posição[4][0] = 83   Posição[4][1] = 41   Posição[4][2] = 10   Posição[4][3] = 36   Posição[4][4] = 00   Posição[4][5] = 28   
+Posição[5][0] = 62   Posição[5][1] = 33   Posição[5][2] = 49   Posição[5][3] = 10   Posição[5][4] = 61   Posição[5][5] = 00   

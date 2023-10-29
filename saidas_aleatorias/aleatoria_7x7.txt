@@ -1,22 +1,22 @@
 Para N = 7
-Menor custo = 12
-Percurso feito = [ 2 5 0 6 1 3 4 2 ]
-Tempo de execução: 0.002651 segundos
+Menor custo = 146
+Percurso feito = [ 2 0 4 6 3 1 5 2 ]
+Tempo de execução: 0.003822 segundos
 
 Matriz:
-0 4 5 3 2 4 1 
-4 0 5 1 3 2 5 
-5 4 0 6 5 1 5 
-9 8 6 0 2 7 6 
-1 3 1 5 0 7 6 
-1 2 1 1 1 0 2 
-2 5 5 9 5 6 0 
+00 49 93 87 36 16 23 
+91 00 95 19 59 31 27 
+44 74 00 69 42 96 49 
+05 15 48 00 53 10 80 
+61 93 52 02 00 05 13 
+77 53 06 64 86 00 22 
+84 76 15 01 33 46 00 
 
 Formato alternativo para fins de checagem dos calculos
-Posição[0][0] = 0   Posição[0][1] = 4   Posição[0][2] = 5   Posição[0][3] = 3   Posição[0][4] = 2   Posição[0][5] = 4   Posição[0][6] = 1   
-Posição[1][0] = 4   Posição[1][1] = 0   Posição[1][2] = 5   Posição[1][3] = 1   Posição[1][4] = 3   Posição[1][5] = 2   Posição[1][6] = 5   
-Posição[2][0] = 5   Posição[2][1] = 4   Posição[2][2] = 0   Posição[2][3] = 6   Posição[2][4] = 5   Posição[2][5] = 1   Posição[2][6] = 5   
-Posição[3][0] = 9   Posição[3][1] = 8   Posição[3][2] = 6   Posição[3][3] = 0   Posição[3][4] = 2   Posição[3][5] = 7   Posição[3][6] = 6   
-Posição[4][0] = 1   Posição[4][1] = 3   Posição[4][2] = 1   Posição[4][3] = 5   Posição[4][4] = 0   Posição[4][5] = 7   Posição[4][6] = 6   
-Posição[5][0] = 1   Posição[5][1] = 2   Posição[5][2] = 1   Posição[5][3] = 1   Posição[5][4] = 1   Posição[5][5] = 0   Posição[5][6] = 2   
-Posição[6][0] = 2   Posição[6][1] = 5   Posição[6][2] = 5   Posição[6][3] = 9   Posição[6][4] = 5   Posição[6][5] = 6   Posição[6][6] = 0   
+Posição[0][0] = 00   Posição[0][1] = 49   Posição[0][2] = 93   Posição[0][3] = 87   Posição[0][4] = 36   Posição[0][5] = 16   Posição[0][6] = 23   
+Posição[1][0] = 91   Posição[1][1] = 00   Posição[1][2] = 95   Posição[1][3] = 19   Posição[1][4] = 59   Posição[1][5] = 31   Posição[1][6] = 27   
+Posição[2][0] = 44   Posição[2][1] = 74   Posição[2][2] = 00   Posição[2][3] = 69   Posição[2][4] = 42   Posição[2][5] = 96   Posição[2][6] = 49   
+Posição[3][0] = 05   Posição[3][1] = 15   Posição[3][2] = 48   Posição[3][3] = 00   Posição[3][4] = 53   Posição[3][5] = 10   Posição[3][6] = 80   
+Posição[4][0] = 61   Posição[4][1] = 93   Posição[4][2] = 52   Posição[4][3] = 02   Posição[4][4] = 00   Posição[4][5] = 05   Posição[4][6] = 13   
+Posição[5][0] = 77   Posição[5][1] = 53   Posição[5][2] = 06   Posição[5][3] = 64   Posição[5][4] = 86   Posição[5][5] = 00   Posição[5][6] = 22   
+Posição[6][0] = 84   Posição[6][1] = 76   Posição[6][2] = 15   Posição[6][3] = 01   Posição[6][4] = 33   Posição[6][5] = 46   Posição[6][6] = 00   

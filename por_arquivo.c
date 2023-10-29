@@ -29,13 +29,17 @@ void por_arquivo() {
         fclose(arquivo_Entrada);
         exit(1);
     }
+
+    int T; // T é pro vetor e N pro array
+    T = N;
     printf("Teste 1: %i\n", N);
+
     // Declara a matriz
-    int M[N][N];
+    int M[T][T];
 
     // Lê os valores da matriz a partir das linhas seguintes do arquivo
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j < N; j++) {
+    for (int i = 0; i < T; i++) {
+        for (int j = 0; j < T; j++) {
             if (i == j) {
                 M[i][j] = 0;
             } else {
@@ -48,11 +52,10 @@ void por_arquivo() {
         }
     }
 
-    int T; // T é pro vetor e N pro array
-    T = N;
+
 
     // Ponto de partida com as matriculas
-    int partida = ((4+0+0+5) + (5+7+9+5) + (5+3+7+8)) % N;
+    int partida = ((4+0+0+5) + (5+7+9+5) + (5+3+7+8)) % T;
     //printf("\nPartida = %i", partida);
 
     // Preparando o vetor cidades
@@ -62,7 +65,7 @@ void por_arquivo() {
     printf("Teste 2: %i\n", N);
 
     int menor_custo = 99999;
-    int percurso[N];
+    int percurso[N+1];
 
     permutador(cidades, 0, N, T, M, &menor_custo, percurso);
     
