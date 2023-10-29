@@ -30,7 +30,6 @@ void por_arquivo() {
     }
 
     T = N;
-    printf("Teste 1: %i\n", N);
 
     // Declara a matriz
     int M[T][T];
@@ -54,12 +53,13 @@ void por_arquivo() {
     int partida = ((4+0+0+5) + (5+7+9+5) + (5+3+7+8)) % T;
     //printf("\nPartida = %i", partida);
 
-    //printf("Teste 2: %i\n", N);
+    //printf("Valor de N: %i\n", N);
+
     // Preparando o vetor cidades
     int cidades[N+1];
     prepara_cidades(cidades, &N, partida);
 
-    //printf("Teste 3: %i\n", N);
+    //printf("Valor de N: %i\n", N);
 
     int menor_custo = 99999;
     int percurso[N];
