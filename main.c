@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-void por_matriz_aleatoria();
 void por_arquivo();
+void por_matriz_aleatoria();
 
 int main(){
 
