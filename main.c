@@ -7,7 +7,7 @@ void por_matriz_aleatoria();
 
 int main(){
 
-    printf("1 - Matriz aleatoria\n2 - Ler arquivo\nChoose your path or die: ");
+    printf("1 - Matriz aleatoria\n2 - Ler arquivo\nEscolha: ");
     int aux;
     scanf("%i", &aux);
 
