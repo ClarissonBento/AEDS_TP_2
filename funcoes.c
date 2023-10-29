@@ -114,7 +114,7 @@ void imprime_resultados(FILE *arquivo, int cidades[], int N, int T, int M[T][T],
     fprintf(arquivo, "\nFormato alternativo para fins de checagem dos calculos\n");
     for (int i = 0; i < T; i++){
         for (int j = 0; j < T; j++){
-            fprintf(arquivo, "Posição[%i][%i] = %.2i   ", i, j, M[i][j]);
+            fprintf(arquivo, "Posição[%.2i][%.2i] = %.2i   ", i, j, M[i][j]);
         }
         fprintf(arquivo, "\n");
     }
