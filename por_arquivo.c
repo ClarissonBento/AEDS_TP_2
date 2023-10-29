@@ -52,8 +52,6 @@ void por_arquivo() {
         }
     }
 
-
-
     // Ponto de partida com as matriculas
     int partida = ((4+0+0+5) + (5+7+9+5) + (5+3+7+8)) % T;
     //printf("\nPartida = %i", partida);
