@@ -13,7 +13,7 @@ void por_arquivo() {
     start_time = clock();
 
     FILE *arquivo_Entrada, *arquivo_Saida;
-    arquivo_Entrada = fopen("MATRIZ", "r");
+    arquivo_Entrada = fopen("MATRIZ.txt", "r");
 
     if (arquivo_Entrada == NULL) {
         printf("Erro ao abrir o arquivo.\n");
