@@ -1,18 +1,18 @@
 Para N = 5
-Menor custo = 149
-Percurso feito = [ 3 2 4 1 0 3 ]
-Tempo de execução: 0.000373 segundos
+Menor custo = 237
+Percurso feito = [ 3 2 1 4 0 3 ]
+Tempo de execução: 0.000350 segundos
 
 Matriz:
-00 24 11 26 19 
-26 00 92 66 02 
-44 11 00 71 26 
-53 80 53 00 84 
-67 18 03 94 00 
+00 75 98 21 47 
+80 00 78 24 67 
+91 58 00 57 75 
+93 32 57 00 66 
+34 19 79 27 00 
 
 Formato alternativo para fins de checagem dos calculos
-Posição[00][00] = 00   Posição[00][01] = 24   Posição[00][02] = 11   Posição[00][03] = 26   Posição[00][04] = 19   
-Posição[01][00] = 26   Posição[01][01] = 00   Posição[01][02] = 92   Posição[01][03] = 66   Posição[01][04] = 02   
-Posição[02][00] = 44   Posição[02][01] = 11   Posição[02][02] = 00   Posição[02][03] = 71   Posição[02][04] = 26   
-Posição[03][00] = 53   Posição[03][01] = 80   Posição[03][02] = 53   Posição[03][03] = 00   Posição[03][04] = 84   
-Posição[04][00] = 67   Posição[04][01] = 18   Posição[04][02] = 03   Posição[04][03] = 94   Posição[04][04] = 00   
+Posição[00][00] = 00   Posição[00][01] = 75   Posição[00][02] = 98   Posição[00][03] = 21   Posição[00][04] = 47   
+Posição[01][00] = 80   Posição[01][01] = 00   Posição[01][02] = 78   Posição[01][03] = 24   Posição[01][04] = 67   
+Posição[02][00] = 91   Posição[02][01] = 58   Posição[02][02] = 00   Posição[02][03] = 57   Posição[02][04] = 75   
+Posição[03][00] = 93   Posição[03][01] = 32   Posição[03][02] = 57   Posição[03][03] = 00   Posição[03][04] = 66   
+Posição[04][00] = 34   Posição[04][01] = 19   Posição[04][02] = 79   Posição[04][03] = 27   Posição[04][04] = 00   
