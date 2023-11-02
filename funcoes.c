@@ -13,9 +13,9 @@ void trocar(int *a, int *b) {
 void permutador(int *cidades, int inicio, int N, int T, int M[T][T], int *menor_custo, int *percurso){
     
     if (inicio+1 == N-1) {
-        for (int i = 0; i < N; i++) {
-            printf("%i ", cidades[i]);
-        }
+        //for (int i = 0; i < N; i++) {
+        //    printf("%i ", cidades[i]); // Removido em prol do desempenho
+        //}
 
         // Usando a matriz pra calcular o custo de cada rota/percuso
         int custo = 0;
@@ -24,16 +24,16 @@ void permutador(int *cidades, int inicio, int N, int T, int M[T][T], int *menor_
             int proxima_cidade = cidades[i + 1];
             custo += M[cidade_atual][proxima_cidade];
         }
+        //printf("| Custo = %i\n", custo); // Removido em prol do desempenho
 
         // Aqui captura o menor custo e o seu percurso
-        printf("| Custo = %i\n", custo);
         if (custo < (*menor_custo)){
             (*menor_custo) = custo;
             for (int  i = 0; i < N; i++) percurso[i] = cidades[i];
         }
 
-    } else {
-        for (int i = inicio+1; i < N-1; i++) {  // permutação go brr
+    } else { // chunk que faz a permutação
+        for (int i = inicio+1; i < N-1; i++) {
             trocar(&cidades[inicio+1], &cidades[i]);
             permutador(cidades, inicio+1, N, T, M, menor_custo, percurso);
             trocar(&cidades[inicio+1], &cidades[i]);
@@ -65,10 +65,6 @@ void prepara_cidades(int *cidades, int *N, int partida){
     }
     cidades[0] = partida;
     cidades[(*N) - 1] = partida;
-
-    //printf("\nCidades: ");
-    //for (int i = 0; i < (*N); i++) printf("%i ", cidades[i]);
-    //printf("\n\n");
 }
 
 void imprime_resultados(FILE *arquivo, int cidades[], int N, int T, int M[T][T], int menor_custo, int percurso[], double elapsed_time){

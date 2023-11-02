@@ -64,6 +64,7 @@ void por_arquivo() {
     int menor_custo = 99999;
     int percurso[N];
 
+    printf("\nAguarde...\n");
     permutador(cidades, 0, N, T, M, &menor_custo, percurso);
     
     char nome_saida[50];

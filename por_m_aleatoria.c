@@ -40,6 +40,7 @@ void por_matriz_aleatoria(){
     int menor_custo = 99999;
     int percurso[N];
 
+    printf("\nAguarde...\n");
     permutador(cidades, 0, N, T, M, &menor_custo, percurso);
     
     end_time = clock();
